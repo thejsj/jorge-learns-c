@@ -11,3 +11,5 @@
   - You depend on knowing that the end of a string is not '\0'
 - The difference between strings and chars: "" and ''
 - how primitive it is: no classes
+- How do you return an array of integers in a function?
+- What is the difference between signed and unsigned docuemtns?
