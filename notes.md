@@ -13,3 +13,4 @@
 - how primitive it is: no classes
 - How do you return an array of integers in a function?
 - What is the difference between signed and unsigned docuemtns?
+- Can you truncate a string by juts adding '\0' at a random place?
