@@ -15,7 +15,7 @@ int main() {
   printf("num_int: %d\n", num_int);
 
   short num_short = 1;
-  short possible_new_short = 1;
+  int possible_new_short = 1;
   valid = 1;
 
   while (valid) {
