@@ -25,7 +25,35 @@ void escape(char str_copy[], char str_source[])
   str_copy[j++] = '\0';
 }
 
-void test_string (char str_source[])
+void unescape(char str_copy[], char str_source[])
+{
+  int i = 0, j = 0;
+
+  while (str_source[i] != '\0') {
+      switch(str_source[i]) {
+        case 't':
+          if (i > 0 && str_source[i - 1] == '\\') {
+            str_copy[j - 1] = '\t';
+            i++;
+          }
+          break;
+        case 'n':
+          if (i > 0 && str_source[i - 1] == '\\') {
+            str_copy[j - 1] = '\n';
+            i++;
+          }
+          break;
+        default:
+          str_copy[j++] = str_source[i++];
+          break;
+      }
+  }
+  str_copy[j++] = '\0';
+}
+
+
+
+void test_string_escape (char str_source[])
 {
   char str_copy[100];
   printf("+ %s\n", str_source);
@@ -33,7 +61,18 @@ void test_string (char str_source[])
   printf("\n+%s\n", str_copy);
 }
 
+void test_string_unescape (char str_source[])
+{
+  char str_copy[100];
+  printf("+ %s\n", str_source);
+  unescape(str_copy, str_source);
+  printf("\n+%s\n", str_copy);
+}
+
 int main()
 {
-  test_string("abad\tsfasd \nwow\t.");
+  printf("* Escape *\n");
+  test_string_escape("abad\tsfasd \nwow\t.");
+  printf("* Unescape *\n");
+  test_string_unescape("abad\\tsfasd \\nwow\\t.");
 }
